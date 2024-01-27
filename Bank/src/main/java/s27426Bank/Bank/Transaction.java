@@ -3,12 +3,12 @@ package s27426Bank.Bank;
 public class Transaction {
     private Client client;
     private double value;
-    private ClientStorage status;
+    private TransactionStatus status;
     public Client getClient() {
         return client;
     }
 
-    public Transaction(Client client,double value,ClientStorage status){
+    public Transaction(Client client,double value,TransactionStatus status){
         this.client = client;
         this.value = value;
         this.status = status;
@@ -17,11 +17,11 @@ public class Transaction {
         return value;
     }
 
-    public ClientStorage getStatus() {
+    public TransactionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(ClientStorage status) {
+    public void setStatus(TransactionStatus status) {
         this.status = status;
     }
 
