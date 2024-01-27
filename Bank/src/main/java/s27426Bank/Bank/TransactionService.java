@@ -43,4 +43,25 @@ public class TransactionService {
             throw new RuntimeException("Client don`t exist");
         }
     }
+    public String Payment(int clientId,double value){
+        Client client = clientStorage.getClient(clientId);
+        if (client != null) {
+            Transaction transaction = new Transaction(client, value, TransactionStatus.ACCEPTED);
+            transactionStorage.addTransaction(transaction);
+            client.setBalance(client.getBalance() + value);
+            return "Wpłata powiodła się";
+        }
+        else {
+            throw new RuntimeException("Client don`t exist");
+        }
+    }
+    public String clientData(int clientId){
+        Client client = clientStorage.getClient(clientId);
+        if (client != null) {
+            return clientStorage.getClient(clientId).toString();
+        }
+        else {
+            throw new RuntimeException("Client don`t exist");
+        }
+    }
 }
